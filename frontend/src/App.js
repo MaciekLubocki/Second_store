@@ -1,56 +1,34 @@
-import React from 'react';
-import logo from './logo.svg';
-import { Counter } from './features/counter/Counter';
-import './App.css';
+import React from "react";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import "./App.css";
+import Navigation from "./components/navigation/navigation";
+import ContactView from "./views/contact/contact";
+import MainView from "./views/main/main";
+import OrderView from "./views/orders/orders";
+import ProductDetailsView from "./views/product-details/product-details";
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <Counter />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <span>
-          <span>Learn </span>
-          <a
-            className="App-link"
-            href="https://reactjs.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            React
-          </a>
-          <span>, </span>
-          <a
-            className="App-link"
-            href="https://redux.js.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Redux
-          </a>
-          <span>, </span>
-          <a
-            className="App-link"
-            href="https://redux-toolkit.js.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Redux Toolkit
-          </a>
-          ,<span> and </span>
-          <a
-            className="App-link"
-            href="https://react-redux.js.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            React Redux
-          </a>
-        </span>
-      </header>
+      <Router>
+        <Navigation />
+        <div>
+          <Switch>
+            <Route path="/product">
+              <ProductDetailsView />
+            </Route>
+            <Route path="/order">
+              <OrderView />
+            </Route>
+            <Route path="/contact">
+              <ContactView />
+            </Route>
+            <Route path="/">
+              <MainView />
+            </Route>
+          </Switch>
+        </div>
+      </Router>
     </div>
   );
 }
