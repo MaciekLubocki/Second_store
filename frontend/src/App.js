@@ -2,6 +2,7 @@ import React from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import "./App.css";
 import Navigation from "./components/navigation/navigation";
+import Footer from "./components/main-components/footer/footer";
 import ContactView from "./views/contact/contact";
 import MainView from "./views/main/main";
 import OrderView from "./views/orders/orders";
@@ -12,6 +13,7 @@ function App() {
     <div className="App">
       <Router>
         <Navigation />
+      <secondNavigation />
         <div>
           <Switch>
             <Route path="/product">
@@ -28,6 +30,7 @@ function App() {
             </Route>
           </Switch>
         </div>
+        <Footer />
       </Router>
     </div>
   );
