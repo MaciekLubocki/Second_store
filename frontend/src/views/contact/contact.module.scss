@@ -1,0 +1,72 @@
+.main {
+  display: flex;
+ justify-content: center;
+}
+
+
+.header2 {
+display: flex;
+flex-direction: column;
+
+}
+
+.rightSide {
+padding: 4rem 6rem;
+}
+
+input {
+width: 300px;
+border:none;
+// background-color: #c7c7c7;
+}
+
+textarea {
+width: 300px;
+height: 200px;
+border:none;
+}
+
+.rightSide {
+  text-align: left;
+}
+
+.slogan {
+  font-size: 26px;
+  text-align: left;
+  padding: 4rem 18rem;
+}
+
+iframe {
+  width: 98.7vw;
+  height: 30vh;
+  border: none ;
+}
+
+.contact {
+  text-align: left;
+  padding: 4rem 6rem;
+  font-size: 16px;
+  line-height: 2;
+  & h4 {
+    line-height: 4;
+  }
+}
+
+.sendForms p {
+  padding-top: 1rem;
+}
+
+button {
+  width: 5rem;
+  height: 2rem;
+  margin-top: 1rem;
+}
+
+
+.address {
+  padding-bottom: 4rem;
+}
+
+.headerStyle {
+  font-size: 26px;
+}

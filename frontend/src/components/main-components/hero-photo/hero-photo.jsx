@@ -1,11 +1,12 @@
 import React from "react";
-import "./hero-photo.scss"
+import style from "./hero-photo.module.scss";
 
-export const HeroPhoto = () => {
+
+const HeroPhoto = () => {
  
   return (
-    <div className="heroParent">
-       <img className="heroAdjust" src="/photos/hero.jpg" alt=""/>
+    <div >
+       <img className={style.heroAdjust} src="/photos/hero.jpg" alt=""/>
     </div>
   );
 };

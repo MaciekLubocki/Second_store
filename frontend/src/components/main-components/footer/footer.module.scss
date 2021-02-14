@@ -1,0 +1,264 @@
+* {
+  margin: 0px;
+  padding: 0px;
+}
+
+// main footer section parameters
+footer {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  background-color: rgb(109, 108, 108);
+  position: absolute;  
+  // display:none;
+  // bottom: 0px;
+}
+
+.footerWraper {
+  display: flex;
+  list-style: none;
+  list-style-type: none;
+}
+
+// format 3 first columns
+.footerColumn {
+  display: flex;
+  flex-direction: row;
+  text-align: left;
+  padding: 3% 0rem 0rem 5rem;
+
+  & li {
+    list-style: none;
+  }
+
+  & a {
+    display: flex;
+    text-decoration: none;
+    list-style: none;
+    color: #fff;
+    text-align: left;
+    list-style-type: none;
+    padding-top: 1rem;
+  }
+}
+
+
+
+// format last column
+.columnLast {
+    display: flex;
+    flex-direction: row;
+    text-align: left;
+    padding: 4% 0rem 0rem 15rem;
+    
+    & li {
+        list-style: none;
+        text-align: justify;
+    }
+    
+    & a {
+        text-decoration: none;
+        list-style: none;
+        
+    }
+        
+    & p {
+        padding: 1rem 0rem 20px 0rem;
+        color: #fff;
+        line-height: 2;
+        text-align: justify;
+        width: 400px;
+    }
+}
+
+// header parameters
+.footerHeader {
+    text-transform: uppercase;
+    font-weight: bolder;
+    color: #d6ebf1 !important;
+    padding-bottom: 2rem;
+  }
+
+// insertWindow style
+input {
+height: 30px;
+font-family: 'Times New Roman', Times, serif;
+font-size: 24px;
+}
+
+button {
+height:29px;
+width: 3rem;
+margin-right: 1rem;
+}
+
+
+.footerLine {
+border-top: 1px gray solid;
+width: 98.7vw;
+margin: 1rem 0rem 0rem 0rem;
+}
+
+.footerMain,
+.footerSocial {
+    display: flex;
+    width: 98.8vw;
+  }
+
+
+.socialFooter {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    padding: 2rem;
+  }
+
+.currencyFooter > p {
+  padding-left: 2rem;
+  padding-right: .1rem;
+
+}
+  
+.currencyFooter > select {
+background: #6d6c6c;
+border:none;
+color: white;
+
+}
+
+.brandIcon {
+    // padding-right:2rem;
+    padding: 1rem;
+    color:#fff;
+    font-size: 20px;
+}
+
+.currencyFooter {
+    display: flex;
+    // justify-content: center;
+    align-items: center;
+    // justify-items: center;
+    // flex-direction: row;
+    
+    & p {
+        color: #fff;
+        font-size: 13px;
+   
+    }
+    
+}
+
+.mediaFooter {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    justify-items: center;
+  & svg {
+    padding-right: 1rem;
+    color:#fff;
+  } 
+    
+}
+
+
+.upFooter {
+  font-size: 40px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  justify-items: center;
+  color: rgb(51, 51, 51);
+  // animation: pulse 1s linear;
+}
+
+.upFooter:hover {
+  animation:  pulse 0.5s ease-in-out infinite;
+cursor: pointer;
+}
+
+.mediaFooter > div:hover  {
+  animation: rotation 0.5s ease-in-out forwards;
+cursor: pointer;
+
+
+}
+
+
+
+@keyframes rotation {
+
+    0% {
+      -webkit-transform: scale3d(1, 1, 1);
+              transform: scale3d(1, 1, 1);
+    }
+    30% {
+      -webkit-transform: scale3d(1.25, 0.75, 1);
+              transform: scale3d(1.25, 0.75, 1);
+    }
+    40% {
+      -webkit-transform: scale3d(0.75, 1.25, 1);
+              transform: scale3d(0.75, 1.25, 1);
+    }
+    50% {
+      -webkit-transform: scale3d(1.15, 0.85, 1);
+              transform: scale3d(1.15, 0.85, 1);
+    }
+    65% {
+      -webkit-transform: scale3d(0.95, 1.05, 1);
+              transform: scale3d(0.95, 1.05, 1);
+    }
+    75% {
+      -webkit-transform: scale3d(1.05, 0.95, 1);
+              transform: scale3d(1.05, 0.95, 1);
+    }
+    100% {
+      -webkit-transform: scale3d(1, 1, 1);
+              transform: scale3d(1, 1, 1);
+    }
+  }
+  
+
+
+@keyframes pulse {
+  0% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+  50% {
+    -webkit-transform: scale(1.1);
+            transform: scale(1.1);
+  }
+  100% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+}
+
+
+
+.butPut{
+  display: flex;
+  flex-direction:row;
+  justify-content: center;
+  justify-items: center;
+  align-items: center;
+  // border: 1px yellow solid;
+}  
+
+.butPutInput, .butPutButton {
+  // display: flex;
+  // flex-direction: row;
+  // border-radius: 3px;
+border:none;
+// justify-content: center;
+// border: 1px red solid;
+margin:0px;
+padding: 0px;
+margin-right: 10px;
+color: #6d6c6c;
+border-radius: 2px;
+text-align: center;
+}
+

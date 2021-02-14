@@ -1,0 +1,92 @@
+@import url('https://fonts.googleapis.com/css2?family=Kanit:wght@500&display=swap');
+
+.headerSN {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    top: 100px;
+    z-index: 0;
+    color: #fff;
+}
+
+.navi {
+    display: flex;
+    justify-content: center;
+    width: 98.8vw;
+    // border: 1px solid rgb(182, 182, 182);
+}
+
+
+.navBarSN {
+    // border: 1px green solid;
+    display: flex;
+    flex-direction: column;
+    height: 5vh;
+    width: 600px;
+    z-index: 99999;
+
+    li {
+        vertical-align: middle;
+        text-align: center;
+        display: table-cell;
+        list-style: none;
+        width: 400px;
+    }
+
+    a {
+        text-decoration: none;
+        color: #fff;
+    }
+
+}
+
+// .navBar :hover {
+// color: #000;
+// }
+
+
+
+.logoStyleSN {
+    font-size: 56px;
+    font-family: ariel, sans-serif;
+}
+
+.linkAnimation {
+    display: inline-block;
+    color: #fff;
+    text-decoration: none;
+}
+
+.linkAnimation::after {
+    content: '';
+    display: block;
+    width: 0;
+    height: 2px;
+    background: rgb(255, 255, 255);
+    transition: width .3s;
+}
+
+.linkAnimation:hover::after {
+    width: 100%;
+    //transition: width .3s;
+}
+
+
+.leftMenu ul {
+    text-align: left;
+    padding: 4rem;
+    list-style: none;
+    animation: rollin .4s linear ;
+    animation-fill-mode: forwards;
+    & li {
+        text-decoration: none;
+    }
+
+}
+
+@keyframes rollin {
+    0% { opacity: 0; transform: translateY(20%); }
+    100% { opacity: 1; transform: translateY(0px); } 
+}
+
