@@ -9,15 +9,24 @@ const productControls = {
             res.status(500).send('Internal server error :P');
         }
     },
+    getProductById: async (req, res, next) => {
+        try {
+            const {id} =req.params;
+            const product = await Product.findById(id);
+            res.send(product);
+        } catch (error) {
+            res.status(500).send('Internal server error :P');
+        }
+    },
     addNewProducts: async (req, res, next) => {
         try {
-            const {cost, name} = req.body;
-            const product = new Product({cost, name});
+            const {cost, name, id, sectionHowMade, sectionConept, photos} = req.body;
+            const product = new Product({cost, name, id, sectionHowMade, sectionConept, photos});
             await product.save();
 
             res.send(product);
         } catch (error) {
-            res.status(500).send('Internal server error :P');
+            res.status(500).send(error);
         }
     },
     updateProduct: async (req, res, next) => {

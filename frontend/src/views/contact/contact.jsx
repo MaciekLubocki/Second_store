@@ -1,13 +1,15 @@
 import React from "react";
 import HeroPhoto from "../../components/main-components/hero-photo/hero-photo";
 import style from "./contact.module.scss";
-
+import SortBar from "../../components/main-components/sortBar/sortBar"
 import { Link } from "react-router-dom";
 
 export const ContactView = () => {
   return (
     <>
       <HeroPhoto />
+      <SortBar />
+      
       <>
         <div className={style.header}>
           <div className={style.slogan}>

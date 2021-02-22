@@ -6,12 +6,20 @@ const {product: productApi} = api;
 export const productsSlice = createSlice({
     name: 'products',
     initialState: {
-        products: []
+        products: [],
+        currentProduct: null
     },
     reducers: {
         getAllProducts: (state, action) => {
             const data = action.payload
             state.products = data
+        },
+        getProductById: (state, action) => {
+            const data = action.payload
+            state.currentProduct = data
+        },
+        deleteCurrentProductData: state => {
+            state.currentProduct = null;
         },
         addProduct: (state, action) => {
             const data = action.payload
@@ -21,12 +29,20 @@ export const productsSlice = createSlice({
 })
 
 // actions 
-export const {addProduct, getAllProducts} = productsSlice.actions
+export const {addProduct, getAllProducts, getProductById, deleteCurrentProductData} = productsSlice.actions
 
 // async action
 export const getAllProductsAsync = () => dispatch => {
     productApi.getAllProducts().then(({data}) => {
         dispatch(getAllProducts(data));
+    }).catch(error => {
+        console.log(error)
+    })
+  };
+
+  export const getProductByIdAsync = id => dispatch => {
+    productApi.getProductById(id).then(({data}) => {
+        dispatch(getProductById(data));
     }).catch(error => {
         console.log(error)
     })
@@ -43,5 +59,6 @@ export const getAllProductsAsync = () => dispatch => {
 
 // values
 export const products = state => state.products.products;
+export const currentProduct = state => state.products.currentProduct;
 
 export default productsSlice.reducer;

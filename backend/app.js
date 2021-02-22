@@ -14,6 +14,7 @@ var Router = express.Router();
 // main routers
 Router.use('/', indexRouter)
 Router.use('/product', productRouter);
+Router.use('/product-details', productRouter);
 // end main routers
 
 // mongoose

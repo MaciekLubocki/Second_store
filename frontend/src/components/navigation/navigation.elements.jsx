@@ -10,7 +10,7 @@ import LeftBar from "../navigation/navigationLeftSide";
 
 export const elements = {
     right: (closeBar) => <Card closeBar={closeBar} />,
-    left: (closeBarLeft) => <LeftBar closeBar={closeBarLeft} />,
+    left: (closeBarLeft) => <LeftBar closeBarLeft={closeBarLeft} />,
     
 
         renderList: (detailsPanelType, openDetailsBox) => {

@@ -15,8 +15,6 @@ const Products = () => {
   const productsData = useSelector(products);
   const dispatch = useDispatch();
   
-
-
   useEffect(() => {
     dispatch(getAllProductsAsync());
   }, []);

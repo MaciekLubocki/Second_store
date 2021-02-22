@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import ReactDom from 'react-dom';
 import style from "./navigation.module.scss";
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -19,6 +20,21 @@ import { LeftBar } from "../navigation/navigationLeftSide";
 import { useSelector } from "react-redux";
 
 export const Navigation = () => {
+
+  useEffect(()=>{
+
+    window.addEventListener('scroll', handleScroll)
+    return ()=> {
+      window.removeEventListener('scroll', handleScroll)
+    }
+  },[])
+
+  const handleScroll = () => {
+    setScrollFlag(window.scrollY > 0);
+  }
+
+
+  const [scrollFlag, setScrollFlag] = useState(false);
   const cardData = useSelector(card);
 
   const [isDetailsPanelOpen, setDetailsPanelOpen] = useState(false);
@@ -64,10 +80,14 @@ export const Navigation = () => {
   return (
     <>
       <header
+        // className={`header ${isDetailsPanelOpen ? style.toggleColor : ""}`}
         className={`header ${isDetailsPanelOpen ? style.toggleColor : ""}`}
       >
-        <div className={style.navContainer}>
+        {/* <div className={style.navContainer}> */}
+        <div className={`${style.navContainer} ${scrollFlag ? style.scrtolled : ""}`}>
+      
           <div className={style.leftIcon}>
+          <div className={style.shopMenu}>  
             <div className="linkNav">
               <FontAwesomeIcon
                 className="brandIcon brandIcon-facebook"
@@ -75,10 +95,11 @@ export const Navigation = () => {
                 onClick={openLeftBar}
               />
             </div>
+            </div>
 
             <div className="linkNav">
               <Link
-                className={style.linkAnimation}
+                className={style.elAnimation}
                 to="/"
                 onMouseOver={openDetailsBox("search")}
               >
@@ -120,12 +141,16 @@ export const Navigation = () => {
                 >
                   HandCraft
                 </Link>
+                {/* {costam && {
+                  ul li 
+                }} */}
               </li>
               <li>
                 <Link
                   className={style.linkAnimation}
                   to="/order"
-                  onMouseOver={openDetailsBox("order")}
+                  // onMouseOver={openDetailsBox("order")}
+                  onClick={openRightBar}
                 >
                   Order
                 </Link>
@@ -143,7 +168,7 @@ export const Navigation = () => {
           </nav>
           <div className={style.rightIcon}>
             <div className="linkNav">
-              <div className="logInIcon">
+              <div className={style.elAnimation}>
                 <Link to="/" onMouseOver={openDetailsBox("login")}>
                   <FontAwesomeIcon
                     className="brandIcon brandIcon-facebook"

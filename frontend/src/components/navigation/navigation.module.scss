@@ -4,15 +4,18 @@
 header a {
   color: white;
   text-decoration: none;
+
 }
 
 .navContainer {
   border-bottom: 1px solid rgb(182, 182, 182);
-  position: absolute;
+  // position: absolute;
   display: flex;
   justify-content: space-around;
   width: 98.8vw;
   z-index: 1002;
+  position: fixed !important;
+  top: 0 !important;
 }
 
 header.toggleColor * {
@@ -263,9 +266,9 @@ nav {
   display: block;
   position: relative;
   top: 18px;
-  right: 0px;
-
-  z-index: 1;
+  // right: 1500px;
+border:1px solid green;
+  z-index: 10000;
 
   -webkit-user-select: none;
   user-select: none;
@@ -357,8 +360,7 @@ nav {
 .menu {
   // opacity: 1;
   position: absolute;
-  height: 100vh;
-  width: 30vw;
+  height: 146.5vh;
   // margin: -50px 0 0 -100px;
   top: -18px !important;
   left: -775px;
@@ -369,14 +371,18 @@ nav {
   list-style-type: none;
   -webkit-font-smoothing: antialiased;
   /* to stop flickering of text in safari */
-
-  transform-origin: 0% 0%;
+transform-origin: 0% 0%;
   transform: translate(100%, 0);
+  //   transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1.0);
+  text-align: left;
+  // height: 100vh;
+  width: 30vw;
+  animation-name: fadeIn;
+  animation-duration: 2s;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
 
-  transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1.0);
 }
-
-
 
 .menu li {
   padding: 0px;
@@ -384,34 +390,17 @@ nav {
   font-size: 22px;
 }
 
-.menuLeft * {
-  padding: 0px;
-  margin: 0px;
-  // font-size: 22px;
-}
-
-/*
- * And let's slide it in from the left
- */
-.menuToggle input:checked~div {
-  transform: none;
-}
-
-.menu {
-  text-align: left;
-  // padding: 3rem 7rem;
-  height: 100vh;
-  width: 30vw;
-
-  animation-name: fadeIn;
-  animation-duration: 2s;
-  animation-iteration-count: 1;
-  animation-fill-mode: forwards;
-}
 
 .menu.close {
   animation-name: fadeIn;
   animation-duration: 4s;
+  animation-iteration-count: 1;
+  animation-direction: reverse;
+}
+
+.menuLeft.close {
+  animation-name: fadeInLeft;
+  animation-duration: 6s;
   animation-iteration-count: 1;
   animation-direction: reverse;
 }
@@ -425,6 +414,36 @@ nav {
     opacity: 1;
     transform: translateX(100%);
   }
+}
+
+@keyframes fadeInLeft {
+  0% {
+    transform: translateX(-200%);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateX(100%);
+  }
+}
+
+
+
+
+
+
+
+.menuLeft * {
+  padding: 0px;
+  margin: 0px;
+  // font-size: 22px;
+}
+
+/*
+ * And let's slide it in from the left
+ */
+.menuToggle input:checked~div {
+  transform: none;
 }
 
 
@@ -504,8 +523,9 @@ nav {
   // position: relative;
   // background: #ffffff;
   // border-radius: 3px;
-  transform-origin: -4px 2px;
-  left: -1110px !important;
+  // transform-origin: -4px 2px;
+  top: -10px;
+  left: 340px !important;
   transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1.0),
     background 0.5s cubic-bezier(0.77, 0.2, 0.05, 1.0),
     opacity 0.55s ease;
@@ -611,6 +631,17 @@ nav {
   color: white;
 }
 
+
+.leftIcon:hover>div {
+  padding: 0 2rem 0 0;
+  color: white;
+  cursor: pointer;
+}
+
+
+
+
+
 .itemSection {
   display: flex;
   justify-content: space-between;
@@ -681,7 +712,7 @@ span {
 
 }
 
-.img img {
+.img {
   width: auto;
   height: 50px;
   // border: 1px grey solid;
@@ -707,7 +738,7 @@ span {
   height: 14px;
   font-size: 9px;
   border-radius: 100%;
-  background-color: rgb(40, 79, 252);
+  background: radial-gradient(circle, rgba(0,182,233,1) 0%, rgba(32,32,32,1) 100%);
   color: rgb(255, 255, 255);
   // text-align: center;
   position: relative;
@@ -728,20 +759,38 @@ span {
   cursor:pointer;
 }
 
-.shopCount:hover {
-  // animation: hoopsie 2s steps(2, end) forwards;
+.shopCount:hover, 
+.shopMenu:hover,
+.elAnimation:hover {
+ 
+  animation: rollinT 1s forwards;
   cursor: pointer;
 }
 
-.logInIcon:hover {
-  animation: hoopsie 1s steps(2, end) forwards;
+
+@keyframes rollinT {
+  0% {
+    opacity: 0;
+    transform: translateY(40%);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0px);
+  }
+}
+
+
+
+.logInIcon a:hover,
+.linkNav:hover  {
+  animation: rollinT 1s steps(2, end) forwards !important;
 }
 
 
 @keyframes hoopsie {
   0% {
-    -webkit-transform: translateY(-45px);
-            transform: translateY(-45px);
+                transform: translateY(-45px);
     -webkit-animation-timing-function: ease-in;
             animation-timing-function: ease-in;
     opacity: 1;
@@ -799,7 +848,7 @@ span {
   width: 30vw;
   // margin: -50px 0 0 -100px;
   top: -18px !important;
-  left: -1600px;
+  left: -1750px;
   padding: 50px;
   // padding-top: 125px;
   background: #ffffff;
@@ -813,44 +862,56 @@ span {
   line-height: 4;
   text-align: center;
   width: 20vw;
-  // border: 1px solid red;
-  z-index: 999999999999999;
+  text-align: left;
+  height: 100vh;
+  width: 30vw;
+  animation-name: fadeInLeft;
+  animation-duration: 2s;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
 }
-
-
-
-
-
-
 
 .menuLeft * {
-line-height: 4;
-text-align: center;
-// border: 1px solid red;
-// width: 20vw;
-margin: 0px !important;
-padding: 0px !important;
+  line-height: 4;
+  text-align: center;
+  // border: 1px solid red;
+  // width: 20vw;
+  margin: 0px !important;
+  padding: 0px !important;
+  color:rgb(95, 95, 95) !important;
 }
+
+
+.menuLeftWrap *:hover {
+  line-height: 4;
+  text-align: center;
+  // border: 1px solid rgb(0, 4, 255);
+  background-color: #e7e7e7;
+  width: 100%;
+  margin: 0px;
+  padding: 0px;
+  color:rgb(95, 95, 95) !important;
+}
+
 
 
 .menuLeftWrap {
   margin-top: 4rem !important;
-}
-
-.menuLeftWrap *:hover {
-line-height: 4;
-text-align: center;
-// border: 1px solid rgb(0, 4, 255);
-background-color: #e7e7e7;
-width: 100%;
-margin: 0px;
-padding: 0px;
-}
-
-
-
-.menuLeftWrap {
 display: block;
   top: 200px;
+}
+
+.lineHorizontal {
+  width: 100%;
+  background: black;
+
+}
+
+
+
+.scrtolled {
+background-color: #c7c7c7;
+z-index: 9999999;
+box-shadow: 1px 1px 30px 5px #585858;
 
 }
